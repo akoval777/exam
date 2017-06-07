@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    title Document
+    link(rel='stylesheet', href='./styles/main.css')
+    meta(name='viewport' content='width=device-width')
+   
+  body
+    //- .counsil
+    .counsil
+      include ./_users.pug
+      mixin user-card(user)
+        .counsil-card
+          .counsil-avatar
+            img(src="https://randomuser.me/api/portraits/" + user.gender + "/" + user.id + ".jpg" alt="")
+          .counsil-name= user.name
+          .counsil-position= user.position
+    
+      for user in users
+        +user-card(user)
